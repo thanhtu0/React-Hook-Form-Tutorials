@@ -1,4 +1,7 @@
+import { useForm } from 'react-hook-form';
 export const YouTubeForm = () => {
+	const form = useForm();
+
 	return (
 		<div>
 			<h1>YouTube Form</h1>
