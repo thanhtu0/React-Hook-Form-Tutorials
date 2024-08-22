@@ -10,7 +10,25 @@ type FormValues = {
 };
 
 export const YouTubeForm = () => {
-	const form = useForm<FormValues>();
+	const form = useForm<FormValues>({
+		defaultValues: {
+			username: 'Batman',
+			email: '',
+			channel: '',
+		},
+	});
+	// Hoặc
+	// const form = useForm<FormValues>({
+	// 	defaultValues: async () => {
+	// 		const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+	// 		const data = await response.json();
+	// 		return {
+	// 			username: data.username,
+	// 			email: data.email,
+	// 			channel: data.address.street,
+	// 		};
+	// 	},
+	// });
 	const { register, control, handleSubmit, formState } = form;
 	const { errors } = formState;
 	// const { name, ref, onChange, onBlur } = register('username');
