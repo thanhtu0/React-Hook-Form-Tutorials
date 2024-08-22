@@ -36,7 +36,7 @@ export const YouTubeForm = () => {
 			dob: new Date(),
 		},
 	});
-	// Hoặc
+	// Or
 	// const form = useForm<FormValues>({
 	// 	defaultValues: async () => {
 	// 		const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
@@ -156,7 +156,10 @@ export const YouTubeForm = () => {
 					<input
 						type='text'
 						id='twitter'
-						{...register('social.twitter')}
+						{...register('social.twitter', {
+							disabled: watch('channel') === '',
+							required: 'Enter twitter profile',
+						})}
 					/>
 				</div>
 
