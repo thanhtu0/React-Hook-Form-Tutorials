@@ -49,9 +49,9 @@ export const YouTubeForm = () => {
 	// 	},
 	// });
 	const { register, control, handleSubmit, formState, watch, getValues, setValue } = form;
-	const { errors, touchedFields, dirtyFields, isDirty } = formState;
+	const { errors, touchedFields, dirtyFields, isDirty, isValid } = formState;
 
-	console.log({ touchedFields, dirtyFields, isDirty });
+	console.log({ touchedFields, dirtyFields, isDirty, isValid });
 	// const { name, ref, onChange, onBlur } = register('username');
 
 	const { fields, append, remove } = useFieldArray({
@@ -255,7 +255,7 @@ export const YouTubeForm = () => {
 					/>
 					<p className='error'>{errors.dob?.message}</p>
 				</div>
-				<button>Submit</button>
+				<button disabled={!isDirty || !isValid}>Submit</button>
 				<button
 					type='button'
 					onClick={handleGetValues}>
