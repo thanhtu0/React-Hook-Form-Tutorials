@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, FieldErrors } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 
 let renderCount = 0;
@@ -63,6 +63,10 @@ export const YouTubeForm = () => {
 		console.log('Form submitted', data);
 	};
 
+	const onError = (errors: FieldErrors<FormValues>) => {
+		console.log('Form errors', errors);
+	};
+
 	const handleGetValues = () => {
 		console.log('Get values', getValues(['username', 'channel']));
 	};
@@ -91,7 +95,7 @@ export const YouTubeForm = () => {
 			{/* <h2>Watched value: {JSON.stringify(watchUsername)}</h2> */}
 
 			<form
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(onSubmit, onError)}
 				noValidate>
 				<div className='form-control'>
 					<label htmlFor='username'>Username</label>
