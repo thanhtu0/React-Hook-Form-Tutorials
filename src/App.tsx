@@ -1,5 +1,5 @@
-import YouTubeForm from './components/YouTubeForm';
-import './App.css'
+import './App.css';
+import { YouTubeForm } from './components/YouTubeForm';
 function App() {
 	return (
 		<div>

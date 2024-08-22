@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 export const YouTubeForm = () => {
 	const form = useForm();
+	const { register } = form;
+	// const { name, ref, onChange, onBlur } = register('username');
 
 	return (
 		<div>
@@ -11,21 +13,23 @@ export const YouTubeForm = () => {
 				<input
 					type='text'
 					id='username'
-					name='username'
+					// name={name} ref={ref} onChange={onChange} onBlur={onBlur}
+					// được thay thế bằng cái ở dưới cho nó gọn gàng.
+					{...register('username')}
 				/>
 
 				<label htmlFor='email'>E-mail</label>
 				<input
 					type='email'
 					id='email'
-					name='email'
+					{...register('email')}
 				/>
 
 				<label htmlFor='channel'>Channel</label>
 				<input
 					type='text'
 					id='channel'
-					name='channel'
+					{...register('channel')}
 				/>
 
 				<button>Submit</button>
