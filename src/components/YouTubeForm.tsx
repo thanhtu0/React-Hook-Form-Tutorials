@@ -48,7 +48,7 @@ export const YouTubeForm = () => {
 	// 		};
 	// 	},
 	// });
-	const { register, control, handleSubmit, formState, watch, getValues, setValue } = form;
+	const { register, control, handleSubmit, formState, watch, getValues, setValue, reset } = form;
 	const {
 		errors,
 		touchedFields,
@@ -89,6 +89,12 @@ export const YouTubeForm = () => {
 			shouldTouch: true,
 		});
 	};
+
+	useEffect(() => {
+		if (isSubmitSuccessful) {
+			reset();
+		}
+	}, [isSubmitSuccessful, reset]);
 
 	// useEffect(() => {
 	// 	const subscription = watch((value) => {
@@ -266,7 +272,13 @@ export const YouTubeForm = () => {
 					/>
 					<p className='error'>{errors.dob?.message}</p>
 				</div>
+
 				<button disabled={!isDirty || !isValid || isSubmitting}>Submit</button>
+				<button
+					type='button'
+					onClick={() => reset()}>
+					Reset
+				</button>
 				<button
 					type='button'
 					onClick={handleGetValues}>
