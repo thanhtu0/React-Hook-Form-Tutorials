@@ -49,7 +49,7 @@ export const YouTubeForm = () => {
 	// 		};
 	// 	},
 	// });
-	const { register, control, handleSubmit, formState, watch, getValues, setValue, reset } = form;
+	const { register, control, handleSubmit, formState, watch, getValues, setValue, reset, trigger } = form;
 	const {
 		errors,
 		touchedFields,
@@ -281,24 +281,27 @@ export const YouTubeForm = () => {
 					<p className='error'>{errors.dob?.message}</p>
 				</div>
 
-				<div className='btn'>
-					<button disabled={!isDirty || isSubmitting}>Submit</button>
-					<button
-						type='button'
-						onClick={() => reset()}>
-						Reset
-					</button>
-					<button
-						type='button'
-						onClick={handleGetValues}>
-						Get values
-					</button>
-					<button
-						type='button'
-						onClick={handleSetValue}>
-						Set value
-					</button>
-				</div>
+				<button disabled={!isDirty || isSubmitting}>Submit</button>
+				<button
+					type='button'
+					onClick={() => reset()}>
+					Reset
+				</button>
+				<button
+					type='button'
+					onClick={handleGetValues}>
+					Get values
+				</button>
+				<button
+					type='button'
+					onClick={handleSetValue}>
+					Set value
+				</button>
+				<button
+					type='button'
+					onClick={() => trigger()}>
+					Validate
+				</button>
 			</form>
 			<DevTool control={control} />
 		</div>

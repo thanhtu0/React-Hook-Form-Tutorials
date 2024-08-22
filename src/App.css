@@ -34,9 +34,3 @@ input[type='date'] {
 .form-control {
 	margin-bottom: 20px;
 }
-
-.btn {
-	display: flex;
-	justify-content: space-between;
-}
-
