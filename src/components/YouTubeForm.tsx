@@ -35,6 +35,7 @@ export const YouTubeForm = () => {
 			age: 0,
 			dob: new Date(),
 		},
+		mode: 'onBlur',
 	});
 	// Or
 	// const form = useForm<FormValues>({
@@ -280,22 +281,24 @@ export const YouTubeForm = () => {
 					<p className='error'>{errors.dob?.message}</p>
 				</div>
 
-				<button disabled={!isDirty  || isSubmitting}>Submit</button>
-				<button
-					type='button'
-					onClick={() => reset()}>
-					Reset
-				</button>
-				<button
-					type='button'
-					onClick={handleGetValues}>
-					Get values
-				</button>
-				<button
-					type='button'
-					onClick={handleSetValue}>
-					Set value
-				</button>
+				<div className='btn'>
+					<button disabled={!isDirty || isSubmitting}>Submit</button>
+					<button
+						type='button'
+						onClick={() => reset()}>
+						Reset
+					</button>
+					<button
+						type='button'
+						onClick={handleGetValues}>
+						Get values
+					</button>
+					<button
+						type='button'
+						onClick={handleSetValue}>
+						Set value
+					</button>
+				</div>
 			</form>
 			<DevTool control={control} />
 		</div>

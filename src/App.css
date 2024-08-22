@@ -35,3 +35,8 @@ input[type='date'] {
 	margin-bottom: 20px;
 }
 
+.btn {
+	display: flex;
+	justify-content: space-between;
+}
+
