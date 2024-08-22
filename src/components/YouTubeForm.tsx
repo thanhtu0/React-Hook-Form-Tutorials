@@ -35,7 +35,7 @@ export const YouTubeForm = () => {
 			age: 0,
 			dob: new Date(),
 		},
-		mode: 'onBlur',
+		mode: 'all',
 	});
 	// Or
 	// const form = useForm<FormValues>({
