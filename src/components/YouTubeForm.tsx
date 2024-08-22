@@ -11,6 +11,7 @@ type FormValues = {
 		twitter: string;
 		facebook: string;
 	};
+	phoneNumbers: string[];
 };
 
 export const YouTubeForm = () => {
@@ -23,6 +24,7 @@ export const YouTubeForm = () => {
 				twitter: '',
 				facebook: '',
 			},
+			phoneNumbers: ['', ''],
 		},
 	});
 	// Hoặc
@@ -131,6 +133,34 @@ export const YouTubeForm = () => {
 						type='text'
 						id='facebook'
 						{...register('social.facebook', {
+							required: {
+								value: true,
+								message: 'Facebook is required',
+							},
+						})}
+					/>
+				</div>
+
+				<div className='form-control'>
+					<label htmlFor='primary-phone'>Primary phone number</label>
+					<input
+						type='text'
+						id='primary-phone'
+						{...register('phoneNumbers.0', {
+							required: {
+								value: true,
+								message: 'Facebook is required',
+							},
+						})}
+					/>
+				</div>
+
+				<div className='form-control'>
+					<label htmlFor='secondary-phone'>Secondary phone number</label>
+					<input
+						type='text'
+						id='secondary-phone'
+						{...register('phoneNumbers.1', {
 							required: {
 								value: true,
 								message: 'Facebook is required',
