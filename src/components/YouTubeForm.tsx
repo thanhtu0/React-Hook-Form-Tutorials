@@ -49,7 +49,9 @@ export const YouTubeForm = () => {
 	// 	},
 	// });
 	const { register, control, handleSubmit, formState, watch, getValues, setValue } = form;
-	const { errors } = formState;
+	const { errors, touchedFields, dirtyFields, isDirty } = formState;
+
+	console.log({ touchedFields, dirtyFields, isDirty });
 	// const { name, ref, onChange, onBlur } = register('username');
 
 	const { fields, append, remove } = useFieldArray({
